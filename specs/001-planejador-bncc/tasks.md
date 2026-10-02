@@ -118,23 +118,23 @@ Este documento define a lista de tarefas acionáveis e ordenadas por dependênci
 
 ### Testes Críticos e Integração Ponta a Ponta
 
-- [ ] T046 [P] Escrever suíte de testes de isolamento estrito entre docentes validando que Professor 2 recebe 404 ao tentar acessar planos de Professor 1 em `apps/api/test/isolation.e2e-spec.ts`
-- [ ] T047 [P] Escrever suíte de testes de integração da atomicidade da geração com IA (verificando que falha no n8n não cria registro em `Plan`) em `apps/api/test/ai-resilience.e2e-spec.ts`
-- [ ] T048 Escrever testes de integração dos fluxos de interface no frontend (busca no catálogo, validação de campos do formulário e alternância entre editor e preview) em `apps/web/test/flows.spec.tsx`
+- [X] T046 [P] Escrever suíte de testes de isolamento estrito entre docentes validando que Professor 2 recebe 404 ao tentar acessar planos de Professor 1 em `apps/api/test/isolation.e2e-spec.ts`
+- [X] T047 [P] Escrever suíte de testes de integração da atomicidade da geração com IA (verificando que falha no n8n não cria registro em `Plan`) em `apps/api/test/ai-resilience.e2e-spec.ts`
+- [X] T048 Escrever testes de integração dos fluxos de interface no frontend (busca no catálogo, validação de campos do formulário e alternância entre editor e preview) em `apps/web/test/flows.spec.tsx`
 
 ### Scripts Raiz e Verificação de Qualidade
 
-- [ ] T049 Executar e validar sem erros o comando de verificação de tipos `pnpm typecheck` em todo o monorepo
-- [ ] T050 Executar e validar sem erros o comando de linting `pnpm lint` em todo o monorepo
-- [ ] T051 Executar e validar com 100% de sucesso todos os testes unitários via `pnpm test`
-- [ ] T052 Executar e validar com 100% de sucesso todos os testes de integração e e2e via `pnpm test:integration`
-- [ ] T053 Executar e validar a compilação completa de produção das duas aplicações via `pnpm build`
+- [X] T049 Executar e validar sem erros o comando de verificação de tipos `pnpm typecheck` em todo o monorepo
+- [X] T050 Executar e validar sem erros o comando de linting `pnpm lint` em todo o monorepo
+- [X] T051 Executar e validar com 100% de sucesso todos os testes unitários via `pnpm test`
+- [X] T052 Executar e validar com 100% de sucesso todos os testes de integração e e2e via `pnpm test:integration`
+- [X] T053 Executar e validar a compilação completa de produção das duas aplicações via `pnpm build`
 
 ### Documentação e Auditoria de Segurança
 
-- [ ] T054 [P] Validar e atualizar se necessário os comandos e passos do guia de execução em `specs/001-planejador-bncc/quickstart.md`
-- [ ] T055 Documentar no README do projeto o ajuste de cookies HttpOnly (localhost com HTTP vs produção com HTTPS/Secure) e configurações do Docker em `README.md`
-- [ ] T056 Auditar o repositório garantindo que nenhum arquivo `.env`, credencial real ou segredo foi incluído no controle de versão Git
+- [X] T054 [P] Validar e atualizar se necessário os comandos e passos do guia de execução em `specs/001-planejador-bncc/quickstart.md`
+- [X] T055 Documentar no README do projeto o ajuste de cookies HttpOnly (localhost com HTTP vs produção com HTTPS/Secure) e configurações do Docker em `README.md`
+- [X] T056 Auditar o repositório garantindo que nenhum arquivo `.env`, credencial real ou segredo foi incluído no controle de versão Git
 
 **Critério de Conclusão da Fase D**: Todos os scripts raiz (`dev`, `lint`, `typecheck`, `test`, `test:integration`, `build`) executam com sucesso, a cobertura de testes críticos de autorização e resiliência é confirmada, o `quickstart.md` é validado e o repositório está limpo e pronto para entrega.
 
