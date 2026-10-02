@@ -52,18 +52,18 @@ Este documento define a lista de tarefas acionáveis e ordenadas por dependênci
 
 ### Cliente n8n e Resiliência (US3)
 
-- [ ] T017 [P] [US3] Escrever testes unitários para validação do schema Zod de resposta do n8n e tratamento de erros em `apps/api/src/ai/n8n.schema.spec.ts`
-- [ ] T018 [US3] Definir o schema Zod de parsing estrito da resposta do n8n (`success: true`, `answer: string`, `format: "markdown"`, `sessao`, `habilidade`) em `apps/api/src/ai/n8n.schema.ts`
-- [ ] T019 [P] [US3] Escrever testes unitários para o cliente HTTP n8n simulando sucesso, timeout aos 45s, erro 500 e mock mode em `apps/api/src/ai/n8n.client.spec.ts`
-- [ ] T020 [US3] Implementar o cliente HTTP `N8nClient` com cabeçalho `x-api-key`, `requestId` UUID, timeout de 45 segundos via `AbortSignal.timeout(45000)`, sem retry automático e suporte a `N8N_MOCK_MODE=true` em `apps/api/src/ai/n8n.client.ts`
+- [X] T017 [P] [US3] Escrever testes unitários para validação do schema Zod de resposta do n8n e tratamento de erros em `apps/api/src/ai/n8n.schema.spec.ts`
+- [X] T018 [US3] Definir o schema Zod de parsing estrito da resposta do n8n (`success: true`, `answer: string`, `format: "markdown"`, `sessao`, `habilidade`) em `apps/api/src/ai/n8n.schema.ts`
+- [X] T019 [P] [US3] Escrever testes unitários para o cliente HTTP n8n simulando sucesso, timeout aos 45s, erro 500 e mock mode em `apps/api/src/ai/n8n.client.spec.ts`
+- [X] T020 [US3] Implementar o cliente HTTP `N8nClient` com cabeçalho `x-api-key`, `requestId` UUID, timeout de 45 segundos via `AbortSignal.timeout(45000)`, sem retry automático e suporte a `N8N_MOCK_MODE=true` em `apps/api/src/ai/n8n.client.ts`
 
 ### Backend: Planos de Aula, AiRun e Atomicidade (US3, US4, US5)
 
-- [ ] T021 [P] [US3] Escrever testes unitários do serviço de planos cobrindo transação atômica em sucesso e falha de IA em `apps/api/src/plans/plans.service.spec.ts`
-- [ ] T022 [US3] Implementar método `generatePlan` com criação de `AiRun` (PENDING), chamada ao n8n e transação Prisma interativa criando `Plan` (RASCUNHO, auxílio IA) e marcando `SUCCEEDED`, ou marcando `FAILED` sem criar planos parciais em caso de falha em `apps/api/src/plans/plans.service.ts`
-- [ ] T023 [US5] Implementar métodos `listPlans`, `getPlanById` e `updatePlan` com filtro obrigatório `where: { userId }` e lançamento de `404 Not Found` em caso de acesso a plano alheio em `apps/api/src/plans/plans.service.ts`
-- [ ] T024 [US3] Implementar controller `PlansController` com rotas `POST /api/plans/generate`, `GET /api/plans`, `GET /api/plans/:id` e `PUT /api/plans/:id` em `apps/api/src/plans/plans.controller.ts`
-- [ ] T025 [P] [US5] Escrever testes de integração de API cobrindo bloqueio de IDOR (404 em plano de outro professor) e persistência atômica em `apps/api/test/plans.e2e-spec.ts`
+- [X] T021 [P] [US3] Escrever testes unitários do serviço de planos cobrindo transação atômica em sucesso e falha de IA em `apps/api/src/plans/plans.service.spec.ts`
+- [X] T022 [US3] Implementar método `generatePlan` com criação de `AiRun` (PENDING), chamada ao n8n e transação Prisma interativa criando `Plan` (RASCUNHO, auxílio IA) e marcando `SUCCEEDED`, ou marcando `FAILED` sem criar planos parciais em caso de falha em `apps/api/src/plans/plans.service.ts`
+- [X] T023 [US5] Implementar métodos `listPlans`, `getPlanById` e `updatePlan` com filtro obrigatório `where: { userId }` e lançamento de `404 Not Found` em caso de acesso a plano alheio em `apps/api/src/plans/plans.service.ts`
+- [X] T024 [US3] Implementar controller `PlansController` com rotas `POST /api/plans/generate`, `GET /api/plans`, `GET /api/plans/:id` e `PUT /api/plans/:id` em `apps/api/src/plans/plans.controller.ts`
+- [X] T025 [P] [US5] Escrever testes de integração de API cobrindo bloqueio de IDOR (404 em plano de outro professor) e persistência atômica em `apps/api/test/plans.e2e-spec.ts`
 
 **Critério de Conclusão da Fase B**: A rota de geração consome o n8n (ou modo mock) com validação Zod estrita, grava plano apenas em sucesso atômico, aborta sem salvar registros parciais em caso de falha/timeout e isola rigorosamente os dados entre docentes (retornando 404 para terceiros).
 
