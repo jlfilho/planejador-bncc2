@@ -1,0 +1,362 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 750px;
+}
+
+.pageTitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-gray-900);
+}
+
+.pageSubtitle {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-gray-600);
+}
+
+.stepBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background-color: var(--color-primary-50);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary-800);
+  white-space: nowrap;
+}
+
+/* Duas Colunas Formulário */
+.formGrid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+/* Coluna Esquerda: Catálogo BNCC */
+.catalogColumn {
+  flex: 1;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.sectionHeaderContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.sectionSubtitle {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--color-gray-600);
+}
+
+.filtersRow {
+  display: flex;
+  gap: 12px;
+}
+
+.filterSelectContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  width: 100%;
+  height: 44px;
+  padding: 0 36px 0 12px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  color: var(--color-gray-900);
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.select:focus {
+  border-color: var(--color-primary-700);
+  box-shadow: 0 0 0 3px rgba(36, 95, 158, 0.12);
+}
+
+.selectIcon {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: var(--color-gray-500);
+}
+
+.resultsSummaryBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resultsCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.clearFiltersBtn {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-primary-700);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease;
+}
+
+.clearFiltersBtn:hover {
+  background-color: var(--color-primary-50);
+}
+
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.skillCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.skillCard:hover {
+  border-color: var(--color-primary-600);
+  background-color: var(--color-gray-50);
+}
+
+.skillCardSelected {
+  border-color: var(--color-primary-700);
+  background-color: var(--color-primary-50);
+}
+
+.skillCardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.skillMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.skillMetaDot {
+  color: var(--color-gray-400);
+  font-size: 12px;
+}
+
+.skillMetaText {
+  font-size: 12px;
+  color: var(--color-gray-600);
+}
+
+.skillDescription {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-gray-900);
+}
+
+/* Coluna Direita: Contexto Pedagógico */
+.contextColumn {
+  width: 430px;
+  flex-shrink: 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.selectedSkillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selectedSkillsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectedSkillsLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.selectedSkillsCount {
+  font-size: 12px;
+  color: var(--color-gray-600);
+}
+
+.chipsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.emptySkillsWarning {
+  font-size: 13px;
+  color: var(--color-danger-text);
+  background-color: var(--color-danger-bg);
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+}
+
+.radioGroupContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.radioLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.radioOptions {
+  display: flex;
+  gap: 32px;
+}
+
+.radioOption {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--color-gray-900);
+}
+
+.customRadio {
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid var(--color-gray-400);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.customRadioActive {
+  border-color: var(--color-primary-700);
+}
+
+.radioIndicator {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-primary-700);
+}
+
+.generateButton {
+  width: 100%;
+  height: 44px;
+}
+
+.safetyReassurance {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--color-gray-600);
+}
+
+.safetyIcon {
+  color: var(--color-gray-500);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Responsividade Mobile e Tablet */
+@media (max-width: 1024px) {
+  .formGrid {
+    flex-direction: column;
+  }
+
+  .contextColumn {
+    width: 100%;
+  }
+
+  .filtersRow {
+    flex-direction: column;
+  }
+}

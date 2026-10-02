@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-gray-900);
+}
+
+.textarea {
+  width: 100%;
+  min-height: 96px;
+  padding: 12px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-300);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--color-gray-900);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.textarea:focus {
+  border-color: var(--color-primary-700);
+  box-shadow: 0 0 0 3px rgba(36, 95, 158, 0.12);
+}
+
+.monospace {
+  font-family: var(--font-mono) !important;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+}
+
+.hasError {
+  border-color: var(--color-danger-border) !important;
+}
+
+.hasError:focus {
+  box-shadow: 0 0 0 3px rgba(180, 58, 58, 0.12);
+}
+
+.errorText {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-danger-text);
+}
+
+.hintText {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--color-gray-600);
+}

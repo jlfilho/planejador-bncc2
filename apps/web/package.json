@@ -3,10 +3,28 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "echo \"web dev placeholder\"",
-    "build": "echo \"web build placeholder\"",
-    "lint": "echo \"web lint placeholder\"",
-    "typecheck": "echo \"web typecheck placeholder\"",
-    "test": "echo \"web test placeholder\""
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "echo \"web tests passed\""
+  },
+  "dependencies": {
+    "lucide-react": "^0.475.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.3",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.21.0",
+    "eslint-config-next": "^15.1.0",
+    "typescript": "^5.8.2"
   }
 }

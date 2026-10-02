@@ -75,38 +75,38 @@ Este documento define a lista de tarefas acionáveis e ordenadas por dependênci
 
 ### Setup Frontend e Design System Tokens
 
-- [ ] T026 Inicializar a aplicação Next.js 15 com React 19 e TypeScript em `apps/web/package.json` e `apps/web/tsconfig.json`
-- [ ] T027 [P] Criar o arquivo central de tokens CSS (`tokens.css`) extraído do Frame 1 (`2:11440`), com variáveis de cores institucionais, neutros, alertas, tipografia Inter/Roboto Mono, sombras e border-radius em `apps/web/src/styles/tokens.css`
-- [ ] T028 [P] Implementar componentes reutilizáveis base (Button, Badge, Input, Textarea, Card, Chip, Alert, Modal, Checkbox) com CSS Modules em `apps/web/src/components/ui/`
-- [ ] T029 Implementar cliente HTTP do frontend com suporte a renovação automática de token JWT e cookies com credenciais em `apps/web/src/services/api.ts`
-- [ ] T030 Implementar contexto de autenticação com Access Token mantido estritamente em memória e restauração silenciosa de sessão em `apps/web/src/context/auth-context.tsx`
-- [ ] T031 Implementar layout base `AppLayout` com sidebar fixa (232px), marca institucional, links de navegação ativos, card de privacidade e topbar com avatar e logout em `apps/web/src/components/layout/app-layout.tsx`
+- [X] T026 Inicializar a aplicação Next.js 15 com React 19 e TypeScript em `apps/web/package.json` e `apps/web/tsconfig.json`
+- [X] T027 [P] Criar o arquivo central de tokens CSS (`tokens.css`) extraído do Frame 1 (`2:11440`), com variáveis de cores institucionais, neutros, alertas, tipografia Inter/Roboto Mono, sombras e border-radius em `apps/web/src/styles/tokens.css`
+- [X] T028 [P] Implementar componentes reutilizáveis base (Button, Badge, Input, Textarea, Card, Chip, Alert, Modal, Checkbox) com CSS Modules em `apps/web/src/components/ui/`
+- [X] T029 Implementar cliente HTTP do frontend com suporte a renovação automática de token JWT e cookies com credenciais em `apps/web/src/services/api.ts`
+- [X] T030 Implementar contexto de autenticação com Access Token mantido estritamente em memória e restauração silenciosa de sessão em `apps/web/src/context/auth-context.tsx`
+- [X] T031 Implementar layout base `AppLayout` com sidebar fixa (232px), marca institucional, links de navegação ativos, card de privacidade e topbar com avatar e logout em `apps/web/src/components/layout/app-layout.tsx`
 
 ### Tela 1: Login com Credenciais Inválidas e Contas Demo (US1 - Frame 2)
 
-- [ ] T032 [P] [US1] Criar estilos em CSS Module para o layout bipartido institucional/login em `apps/web/src/app/login/login.module.css`
-- [ ] T033 [US1] Implementar a página de login com painel institucional à esquerda (600px), formulário à direita com banner de erro `#FDECEC` para credenciais inválidas e cards interativos com ação rápida "Usar conta" para Ana Souza e Marcos Lima (Frame 2 `2:11755`) em `apps/web/src/app/login/page.tsx`
+- [X] T032 [P] [US1] Criar estilos em CSS Module para o layout bipartido institucional/login em `apps/web/src/app/login/login.module.css`
+- [X] T033 [US1] Implementar a página de login com painel institucional à esquerda (600px), formulário à direita com banner de erro `#FDECEC` para credenciais inválidas e cards interativos com ação rápida "Usar conta" para Ana Souza e Marcos Lima (Frame 2 `2:11755`) em `apps/web/src/app/login/page.tsx`
 
 ### Tela 2: Meus Planos e Estado Vazio (US5 - Frames 3 e 4)
 
-- [ ] T034 [P] [US5] Criar estilos em CSS Module para a listagem e tabela de planos em `apps/web/src/app/planos/planos.module.css`
-- [ ] T035 [US5] Implementar a página de Meus Planos com campo de busca, contador de rascunhos, listagem com badges `RASCUNHO` e `Auxílio por IA`, e estado vazio acolhedor com ilustração SVG e botão "+ Criar primeiro plano" (Frames 3 `2:11830` e 4 `2:11932`) em `apps/web/src/app/planos/page.tsx`
+- [X] T034 [P] [US5] Criar estilos em CSS Module para a listagem e tabela de planos em `apps/web/src/app/planos/planos.module.css`
+- [X] T035 [US5] Implementar a página de Meus Planos com campo de busca, contador de rascunhos, listagem com badges `RASCUNHO` e `Auxílio por IA`, e estado vazio acolhedor com ilustração SVG e botão "+ Criar primeiro plano" (Frames 3 `2:11830` e 4 `2:11932`) em `apps/web/src/app/planos/page.tsx`
 
 ### Tela 3: Novo Plano — Formulário, Preparando e Falha (US2, US3 - Frames 5, 6 e 7)
 
-- [ ] T036 [P] [US2] Criar estilos em CSS Module para o formulário de criação em duas colunas e catálogo BNCC em `apps/web/src/app/planos/novo/novo.module.css`
-- [ ] T037 [US2] Implementar componente do catálogo BNCC com campo de busca com lupa, selects de Nível, Ano e Eixo, botão "Limpar filtros", listagem com checkboxes e chips removíveis de habilidades selecionadas em `apps/web/src/components/bncc/bncc-catalog.tsx`
-- [ ] T038 [US3] Implementar formulário de contexto pedagógico com validação inline de duração (15-360 min), instrução (10-1000 chars), recursos digitais e banner de alerta antes de gerar (Frame 5 `2:11990`) em `apps/web/src/app/planos/novo/page.tsx`
-- [ ] T039 [US3] Implementar estado visual de preparação com banner `#EAF3FC`, spinner animado, barra de progresso visual, bloqueio de reenvio duplo e desabilitação do formulário (Frame 6 `2:12155`) em `apps/web/src/app/planos/novo/loading-state.tsx`
-- [ ] T040 [US3] Implementar estado de falha de geração com banner de erro `#FDECEC`, preservação integral de todos os campos digitados e seleções BNCC, e botão ativo "Tentar gerar novamente" sem repetição automática (Frame 7 `2:12329`) em `apps/web/src/app/planos/novo/error-state.tsx`
+- [X] T036 [P] [US2] Criar estilos em CSS Module para o formulário de criação em duas colunas e catálogo BNCC em `apps/web/src/app/planos/novo/novo.module.css`
+- [X] T037 [US2] Implementar componente do catálogo BNCC com campo de busca com lupa, selects de Nível, Ano e Eixo, botão "Limpar filtros", listagem com checkboxes e chips removíveis de habilidades selecionadas em `apps/web/src/components/bncc/bncc-catalog.tsx`
+- [X] T038 [US3] Implementar formulário de contexto pedagógico com validação inline de duração (15-360 min), instrução (10-1000 chars), recursos digitais e banner de alerta antes de gerar (Frame 5 `2:11990`) em `apps/web/src/app/planos/novo/page.tsx`
+- [X] T039 [US3] Implementar estado visual de preparação com banner `#EAF3FC`, spinner animado, barra de progresso visual, bloqueio de reenvio duplo e desabilitação do formulário (Frame 6 `2:12155`) em `apps/web/src/app/planos/novo/loading-state.tsx`
+- [X] T040 [US3] Implementar estado de falha de geração com banner de erro `#FDECEC`, preservação integral de todos os campos digitados e seleções BNCC, e botão ativo "Tentar gerar novamente" sem repetição automática (Frame 7 `2:12329`) em `apps/web/src/app/planos/novo/error-state.tsx`
 
 ### Tela 4: Editor Markdown, Pré-visualização e Diálogo de Saída (US4 - Frames 8 e 9)
 
-- [ ] T041 [P] [US4] Criar estilos em CSS Module para o editor com split-view desktop e abas mobile em `apps/web/src/app/planos/[id]/editor.module.css`
-- [ ] T042 [US4] Implementar barra de ferramentas de formatação (Bold, Italic, Listas, Link) e textarea com fonte `Roboto Mono` em `apps/web/src/components/editor/markdown-toolbar.tsx`
-- [ ] T043 [US4] Implementar componente de pré-visualização formatada com sanitização estrita via `rehype-sanitize` e `react-markdown` (sem execução de HTML arbitrário) em `apps/web/src/components/editor/markdown-preview.tsx`
-- [ ] T044 [US4] Implementar a página do editor de rascunho com abas ("Editor Markdown" e "Pré-visualização"), split-view desktop, botão "Salvar alterações" e banner verde de confirmação `#E9F6EF` (Frame 8 `2:12495`) em `apps/web/src/app/planos/[id]/page.tsx`
-- [ ] T045 [US4] Implementar modal de confirmação de saída "Sair sem salvar?" sobre backdrop escurecido, alertando alterações não salvas com botões "Continuar editando" e "Sair sem salvar" (Frame 9 `2:12608`) em `apps/web/src/components/editor/exit-confirmation-modal.tsx`
+- [X] T041 [P] [US4] Criar estilos em CSS Module para o editor com split-view desktop e abas mobile em `apps/web/src/app/planos/[id]/editor.module.css`
+- [X] T042 [US4] Implementar barra de ferramentas de formatação (Bold, Italic, Listas, Link) e textarea com fonte `Roboto Mono` em `apps/web/src/components/editor/markdown-toolbar.tsx`
+- [X] T043 [US4] Implementar componente de pré-visualização formatada com sanitização estrita via `rehype-sanitize` e `react-markdown` (sem execução de HTML arbitrário) em `apps/web/src/components/editor/markdown-preview.tsx`
+- [X] T044 [US4] Implementar a página do editor de rascunho com abas ("Editor Markdown" e "Pré-visualização"), split-view desktop, botão "Salvar alterações" e banner verde de confirmação `#E9F6EF` (Frame 8 `2:12495`) em `apps/web/src/app/planos/[id]/page.tsx`
+- [X] T045 [US4] Implementar modal de confirmação de saída "Sair sem salvar?" sobre backdrop escurecido, alertando alterações não salvas com botões "Continuar editando" e "Sair sem salvar" (Frame 9 `2:12608`) em `apps/web/src/components/editor/exit-confirmation-modal.tsx`
 
 **Critério de Conclusão da Fase C**: Todas as 4 telas e seus respectivos estados visuais estão funcionais, estilizados estritamente com os tokens e fontes do Figma (sem Tailwind), com layout responsivo (split-view no desktop e abas no mobile) e interações de login, catálogo, geração, edição e saída validadas no browser.
 
