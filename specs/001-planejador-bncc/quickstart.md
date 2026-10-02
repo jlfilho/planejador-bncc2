@@ -22,21 +22,35 @@ Este guia descreve os pré-requisitos, a inicialização do ambiente monorepo, a
 pnpm install
 ```
 
-### 2.2. Inicializar o Banco de Dados PostgreSQL (Docker Compose)
+### 2.2. Configurar Arquivos de Ambiente (.env)
+```bash
+# Copiar arquivos de exemplo para ambiente local:
+# No Windows PowerShell:
+Copy-Item .env.example .env
+Copy-Item apps/api/.env.example apps/api/.env
+Copy-Item apps/web/.env.example apps/web/.env.local
+
+# No Linux / macOS / Bash:
+cp .env.example .env
+cp apps/api/.env.example apps/api/.env
+cp apps/web/.env.example apps/web/.env.local
+```
+
+### 2.3. Inicializar o Banco de Dados PostgreSQL (Docker Compose)
 ```bash
 # Subir o container PostgreSQL na porta 5432:
 docker compose up -d postgres
 ```
 
-### 2.3. Executar Migrações e Seeds do Prisma
+### 2.4. Executar Migrações e Seeds do Prisma
 ```bash
 # Executar as migrações no banco de dados e popular dados iniciais:
-pnpm --filter @planejador/api prisma migrate dev
-pnpm --filter @planejador/api prisma db seed
+pnpm --filter @planejador/api prisma:migrate
+pnpm --filter @planejador/api prisma:seed
 ```
 *O seed carrega de forma idempotente as duas contas de demonstração e o catálogo de habilidades a partir de `docs/data/bncc-recorte.json`.*
 
-### 2.4. Iniciar os Serviços em Modo de Desenvolvimento
+### 2.5. Iniciar os Serviços em Modo de Desenvolvimento
 ```bash
 # Inicia apps/api (localhost:3001) e apps/web (localhost:3000) simultaneamente:
 pnpm dev
@@ -44,6 +58,7 @@ pnpm dev
 
 * **Frontend Web**: [http://localhost:3000](http://localhost:3000)
 * **Backend API**: [http://localhost:3001](http://localhost:3001)
+* **Banco de Dados PostgreSQL**: `localhost:5432`
 
 ---
 

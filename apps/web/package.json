@@ -8,7 +8,7 @@
     "start": "next start -p 3000",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "echo \"web tests passed\""
+    "test": "node --test test/*.ts"
   },
   "dependencies": {
     "lucide-react": "^0.475.0",

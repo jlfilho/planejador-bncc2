@@ -109,8 +109,10 @@ export class N8nClient {
       ) {
         throw new N8nTimeoutError('Tempo limite de resposta do n8n excedido (45 segundos).');
       }
+      const cause = (err as any)?.cause;
+      const detail = cause ? ` (${cause.message || cause.code || cause})` : '';
       throw new N8nGenerationError(
-        `Falha na comunicação com o n8n: ${err instanceof Error ? err.message : String(err)}`,
+        `Falha na comunicação com o n8n: ${err instanceof Error ? err.message : String(err)}${detail}`,
         err,
       );
     }
