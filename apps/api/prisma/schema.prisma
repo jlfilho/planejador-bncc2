@@ -1,0 +1,122 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum PlanStatus {
+  RASCUNHO
+}
+
+enum AiRunStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+model User {
+  id           String    @id @default(uuid()) @db.Uuid
+  email        String    @unique @db.VarChar(255)
+  name         String    @db.VarChar(255)
+  passwordHash String    @map("password_hash") @db.VarChar(255)
+  role         String    @default("DOCENTE") @db.VarChar(50)
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt @map("updated_at")
+
+  sessions     Session[]
+  plans        Plan[]
+  aiRuns       AiRun[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  tokenHash String    @unique @map("token_hash") @db.VarChar(255)
+  expiresAt DateTime  @map("expires_at")
+  revokedAt DateTime? @map("revoked_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  userAgent String?   @map("user_agent") @db.Text
+  ipAddress String?   @map("ip_address") @db.VarChar(45)
+
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model BnccSkill {
+  id         String      @id @default(uuid()) @db.Uuid
+  codigo     String      @unique @db.VarChar(20)
+  nivel      String      @db.VarChar(100)
+  ano        Int?
+  eixo       String      @db.VarChar(150)
+  descricao  String      @db.Text
+  explicacao String?     @db.Text
+  exemplos   String?     @db.Text
+  createdAt  DateTime    @default(now()) @map("created_at")
+
+  planSkills PlanSkill[]
+
+  @@index([codigo])
+  @@index([nivel, ano])
+  @@map("bncc_skills")
+}
+
+model Plan {
+  id               String      @id @default(uuid()) @db.Uuid
+  userId           String      @map("user_id") @db.Uuid
+  titulo           String      @db.VarChar(100)
+  instrucao        String      @db.Text
+  duracao          Int
+  recursosDigitais Boolean     @map("recursos_digitais")
+  conteudoMarkdown String      @map("conteudo_markdown") @db.Text
+  status           PlanStatus  @default(RASCUNHO)
+  aiAssisted       Boolean     @default(true) @map("ai_assisted")
+  aiRunId          String?     @unique @map("ai_run_id") @db.Uuid
+  createdAt        DateTime    @default(now()) @map("created_at")
+  updatedAt        DateTime    @updatedAt @map("updated_at")
+
+  user             User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  aiRun            AiRun?      @relation(fields: [aiRunId], references: [id])
+  skills           PlanSkill[]
+
+  @@index([userId])
+  @@map("plans")
+}
+
+model PlanSkill {
+  id        String    @id @default(uuid()) @db.Uuid
+  planId    String    @map("plan_id") @db.Uuid
+  skillId   String    @map("skill_id") @db.Uuid
+  createdAt DateTime  @default(now()) @map("created_at")
+
+  plan      Plan      @relation(fields: [planId], references: [id], onDelete: Cascade)
+  skill     BnccSkill @relation(fields: [skillId], references: [id], onDelete: Restrict)
+
+  @@unique([planId, skillId])
+  @@map("plan_skills")
+}
+
+model AiRun {
+  id              String      @id @default(uuid()) @db.Uuid
+  userId          String      @map("user_id") @db.Uuid
+  requestId       String      @unique @map("request_id") @db.Uuid
+  status          AiRunStatus @default(PENDING)
+  payloadRequest  Json        @map("payload_request")
+  payloadResponse Json?       @map("payload_response")
+  errorMessage    String?     @map("error_message") @db.Text
+  durationMs      Int?        @map("duration_ms")
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  plan            Plan?
+
+  @@index([userId])
+  @@map("ai_runs")
+}
