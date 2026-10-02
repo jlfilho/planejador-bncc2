@@ -1,0 +1,12 @@
+{
+  "name": "@planejador/web",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "echo \"web dev placeholder\"",
+    "build": "echo \"web build placeholder\"",
+    "lint": "echo \"web lint placeholder\"",
+    "typecheck": "echo \"web typecheck placeholder\"",
+    "test": "echo \"web test placeholder\""
+  }
+}

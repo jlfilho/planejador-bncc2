@@ -16,31 +16,31 @@ Este documento define a lista de tarefas acionáveis e ordenadas por dependênci
 
 ### Setup e Infraestrutura Monorepo
 
-- [ ] T001 Configurar a estrutura raiz do monorepo pnpm com workspaces para `apps/web` e `apps/api` em `pnpm-workspace.yaml` e `package.json`
-- [ ] T002 [P] Configurar scripts raiz no `package.json` (`dev`, `lint`, `typecheck`, `test`, `test:integration`, `build`) e arquivo `.npmrc`
-- [ ] T003 [P] Criar configuração do serviço PostgreSQL 16 com healthcheck e volume persistente em `docker-compose.yml`
-- [ ] T004 [P] Criar arquivos de configuração de ambiente e exemplos em `.env.example`, `apps/api/.env.example` e `apps/web/.env.example`
+- [X] T001 Configurar a estrutura raiz do monorepo pnpm com workspaces para `apps/web` e `apps/api` em `pnpm-workspace.yaml` e `package.json`
+- [X] T002 [P] Configurar scripts raiz no `package.json` (`dev`, `lint`, `typecheck`, `test`, `test:integration`, `build`) e arquivo `.npmrc`
+- [X] T003 [P] Criar configuração do serviço PostgreSQL 16 com healthcheck e volume persistente em `docker-compose.yml`
+- [X] T004 [P] Criar arquivos de configuração de ambiente e exemplos em `.env.example`, `apps/api/.env.example` e `apps/web/.env.example`
 
 ### Banco de Dados e Modelos Prisma
 
-- [ ] T005 Inicializar o projeto NestJS 11 em `apps/api/package.json` e `apps/api/tsconfig.json`
-- [ ] T006 Definir o esquema canônico do Prisma com as entidades `User`, `Session`, `BnccSkill`, `Plan`, `PlanSkill` e `AiRun` em `apps/api/prisma/schema.prisma`
-- [ ] T007 Gerar e aplicar a migração inicial determinística do PostgreSQL em `apps/api/prisma/migrations/0001_init/migration.sql`
-- [ ] T008 Implementar script de seed idempotente carregando as 2 contas demo locais (com hash bcrypt) e as habilidades de `docs/data/bncc-recorte.json` via upsert em `apps/api/prisma/seed.ts`
+- [X] T005 Inicializar o projeto NestJS 11 em `apps/api/package.json` e `apps/api/tsconfig.json`
+- [X] T006 Definir o esquema canônico do Prisma com as entidades `User`, `Session`, `BnccSkill`, `Plan`, `PlanSkill` e `AiRun` em `apps/api/prisma/schema.prisma`
+- [X] T007 Gerar e aplicar a migração inicial determinística do PostgreSQL em `apps/api/prisma/migrations/0001_init/migration.sql`
+- [X] T008 Implementar script de seed idempotente carregando as 2 contas demo locais (com hash bcrypt) e as habilidades de `docs/data/bncc-recorte.json` via upsert em `apps/api/prisma/seed.ts`
 
 ### Backend: Autenticação de Docente (US1)
 
-- [ ] T009 [P] [US1] Escrever testes unitários do serviço de autenticação (geração de tokens, hash de senha e validação de sessão) em `apps/api/src/auth/auth.service.spec.ts`
-- [ ] T010 [US1] Implementar serviço de autenticação com bcrypt para senhas e SHA-256 para refresh tokens em `apps/api/src/auth/auth.service.ts`
-- [ ] T011 [US1] Implementar estratégias JWT (Access Token de 15 minutos em memória e Guards de proteção) em `apps/api/src/auth/guards/jwt-auth.guard.ts`
-- [ ] T012 [US1] Implementar controller de autenticação com rotas `POST /api/auth/login`, `POST /api/auth/refresh`, `POST /api/auth/logout` e `GET /api/auth/me` com cookie HttpOnly `SameSite=Lax` em `apps/api/src/auth/auth.controller.ts`
-- [ ] T013 [P] [US1] Escrever testes de integração dos endpoints de autenticação e proteção contra CSRF em `apps/api/test/auth.e2e-spec.ts`
+- [X] T009 [P] [US1] Escrever testes unitários do serviço de autenticação (geração de tokens, hash de senha e validação de sessão) em `apps/api/src/auth/auth.service.spec.ts`
+- [X] T010 [US1] Implementar serviço de autenticação com bcrypt para senhas e SHA-256 para refresh tokens em `apps/api/src/auth/auth.service.ts`
+- [X] T011 [US1] Implementar estratégias JWT (Access Token de 15 minutos em memória e Guards de proteção) em `apps/api/src/auth/guards/jwt-auth.guard.ts`
+- [X] T012 [US1] Implementar controller de autenticação com rotas `POST /api/auth/login`, `POST /api/auth/refresh`, `POST /api/auth/logout` e `GET /api/auth/me` com cookie HttpOnly `SameSite=Lax` em `apps/api/src/auth/auth.controller.ts`
+- [X] T013 [P] [US1] Escrever testes de integração dos endpoints de autenticação e proteção contra CSRF em `apps/api/test/auth.e2e-spec.ts`
 
 ### Backend: Catálogo de Habilidades BNCC (US2)
 
-- [ ] T014 [P] [US2] Escrever testes unitários do serviço de consulta e filtragem da BNCC em `apps/api/src/bncc/bncc.service.spec.ts`
-- [ ] T015 [US2] Implementar serviço de catálogo com filtros por `q` (código ou texto), `nivel`, `ano` e `eixo` em modo somente leitura em `apps/api/src/bncc/bncc.service.ts`
-- [ ] T016 [US2] Implementar controller do catálogo BNCC para as rotas `GET /api/bncc/skills` e `GET /api/bncc/skills/:codigo` protegidas por JWT em `apps/api/src/bncc/bncc.controller.ts`
+- [X] T014 [P] [US2] Escrever testes unitários do serviço de consulta e filtragem da BNCC em `apps/api/src/bncc/bncc.service.spec.ts`
+- [X] T015 [US2] Implementar serviço de catálogo com filtros por `q` (código ou texto), `nivel`, `ano` e `eixo` em modo somente leitura em `apps/api/src/bncc/bncc.service.ts`
+- [X] T016 [US2] Implementar controller do catálogo BNCC para as rotas `GET /api/bncc/skills` e `GET /api/bncc/skills/:codigo` protegidas por JWT em `apps/api/src/bncc/bncc.controller.ts`
 
 **Critério de Conclusão da Fase A**: O container PostgreSQL sobe via `docker compose`, o seed roda de forma idempotente, a autenticação emite cookies HttpOnly seguros e o catálogo BNCC responde com filtros combinados com 100% dos testes unitários da Fase A passando.
 
