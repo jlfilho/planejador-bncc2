@@ -1,0 +1,66 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.iconCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-warning-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.warningIcon {
+  color: var(--color-warning-text);
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-gray-900);
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--color-gray-600);
+}
+
+.lastSavedBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background-color: var(--color-gray-50);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--color-gray-600);
+}
+
+.clockIcon {
+  color: var(--color-gray-500);
+  flex-shrink: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

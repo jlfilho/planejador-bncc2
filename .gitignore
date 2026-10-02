@@ -25,6 +25,7 @@ dist/
 build/
 out/
 .next/
+*.tsbuildinfo
 .nuxt/
 .output/
 .astro/

@@ -1,0 +1,43 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-full);
+  line-height: 1;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.draft {
+  background-color: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.ai {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.skill {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.neutral {
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-600);
+}
+
+.year {
+  background-color: var(--color-primary-50);
+  color: var(--color-gray-600);
+}

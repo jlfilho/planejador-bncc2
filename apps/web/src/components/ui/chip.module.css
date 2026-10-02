@@ -1,0 +1,31 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background-color: var(--color-primary-50);
+  border: 1px solid var(--color-primary-100);
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--color-primary-800);
+}
+
+.label {
+  line-height: 1;
+}
+
+.removeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-700);
+  padding: 1px;
+  border-radius: var(--radius-full);
+  transition: background-color 0.1s ease;
+}
+
+.removeButton:hover {
+  background-color: var(--color-primary-100);
+}
